@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Copyright" content="@Q5dis" />
+    <title>I need something to watch while I eat</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Lilita+One&family=Lobster&family=Unbounded:wght@200&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    
+    <style>
+        #top-text{
+            font-family: 'Unbounded', cursive;
+            margin-top: 150px;
+            margin-bottom: 90px;
+            font-weight: bold;
+        }
+        
+        #result{
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+
+            padding: 8%;
+            color: rgb(255, 255, 255);
+            background-color: rgba(255, 255, 255, 0.37);
+        }
+
+        #return{
+            font-family: 'Lobster', cursive;
+           
+            font-size: 53px;
+            border-radius:10px; 
+            padding:30px;
+            min-height:180px; 
+            min-width: 200px;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const food = urlParams.get('food'); // 선택한 음식 값
+
+    if (food === 'ff') {
+        $(document).ready(function() {
+        $.ajax({
+            url: "MOVIELIST_TB.json",
+            dataType: "json",
+            success: function(data) {
+            var randomID = Math.floor(Math.random() * 10);
+            var movieName = data.find(function(item) {
+            return item.ID === randomID;
+        }).NAME;
+
+        $("#result").text(movieName);
+        }
+        });
+    });
+    } else if (food === 'hf') {
+        $(document).ready(function() {
+        $.ajax({
+            url: "MOVIELIST_TB.json",
+            dataType: "json",
+            success: function(data) {
+            var randomID = Math.floor(Math.random() * 10) + 10;
+            var movieName = data.find(function(item) {
+            return item.ID === randomID;
+        }).NAME;
+
+        $("#result").text(movieName);
+        }
+        });
+    });
+    } else if (food === 'bf') {
+        $(document).ready(function() {
+        $.ajax({
+            url: "MOVIELIST_TB.json",
+            dataType: "json",
+            success: function(data) {
+            var randomID = Math.floor(Math.random() * 10) + 20;
+            var movieName = data.find(function(item) {
+            return item.ID === randomID;
+        }).NAME;
+
+        $("#result").text(movieName);
+        }
+        });
+    });
+    } else if (food === 'sc') {
+        $(document).ready(function() {
+        $.ajax({
+            url: "MOVIELIST_TB.json",
+            dataType: "json",
+            success: function(data) {
+            var randomID = Math.floor(Math.random() * 10) + 30;
+            var movieName = data.find(function(item) {
+            return item.ID === randomID;
+        }).NAME;
+
+        $("#result").text(movieName);
+        }
+        });
+    });
+    } 
+</script>
+
+    <div align="center">
+        <p id="top-text">You might like this!</p>
+        <p id="result"></p>
+    </div>
+
+    <div align="center" id="return">
+        <span><a href="index.html"><button>Return</button></a></span>
+    </div>
+
+    <div id="Copyright" align="center">
+        <span>github: https://github.com/Q5dis</span>
+        <span>  ||  e-mail: qowkqowk@gmail.com</span>
+    </div>
+</body>
+</html>
