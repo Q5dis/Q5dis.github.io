@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Result Page</title>
+</head>
+<body>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const food = urlParams.get('food'); // 선택한 음식 값
+        let keyword='';
+        
+        if (food === 'ff') {
+            keyword='Action, Comedy, Animaton';
+        } else if (food === 'hf') {
+            keyword='Romantic Comedy, Drama, Suspense, Horror';
+        } else if (food === 'bf') {
+            keyword='Documentary, knowledge';
+        } else if (food === 'sc') {
+            keyword='Action, Superhero, Highteen, Animation';
+        } 
+    </script>
+
+    <div id="output"></div>
+    <script>
+    let outputDiv = document.getElementById("output");
+    outputDiv.innerHTML = keyword;
+    </script>
+
+    <div>
+        <span><a href="index.html"><button>return</button></a></span>
+    </div>
+
+</body>
+</html>
