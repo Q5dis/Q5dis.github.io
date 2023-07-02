@@ -13,7 +13,7 @@ public static void main(String[] args) {
 
 	int AdminOn=0; int GuestOn=0; int a=0; int money=0; int loading=0;
 
-	System.out.println("[왕경이네 과일도매장]");
+	System.out.println("[ㅇㅇ이네 과일도매장]");
 	System.out.println("매일 신선한 제철과일을 5종류씩 판매, 구매합니다");
 	System.out.println("종류는 매일 바뀌니 유의해 주세요.");
 
