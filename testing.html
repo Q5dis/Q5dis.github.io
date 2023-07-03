@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Copyright" content="@Q5dis" />
+   
+    <title>Nearby Movie</title>
+</head>
+<body>
+    <script>
+        var latitude;
+        var longitude;
+       
+        function success({coords}) {
+            latitude = coords.latitude;
+            longitude = coords.longitude;
+           
+            document.getElementsByClassName("btn_latitude")[0].textContent = latitude;
+            document.getElementsByClassName("btn_longitude")[0].textContent = longitude;
+        }
+
+
+        function getLocation() {
+            if (!navigator.geolocation) {
+                alert("위치정보가 지원되지 않습니다.");
+                return;
+            }
+            navigator.geolocation.watchPosition(success);
+        }
+   
+        function btn_getLocation() {
+            getLocation();
+        }
+    </script>
+ 
+    <button id="btn" type="button" onclick="btn_getLocation()">
+        testing
+    </button>
+    <p>위도: <span class="btn_latitude"></span></p>
+    <p>경도: <span class="btn_longitude"></span></p>
+
+
+</body>
+</html>
